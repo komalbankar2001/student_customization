@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="student_form_view" model="ir.ui.view">
+            <field name="name">student.form</field>
+            <field name="model">students</field>
+            <field name="arch" type="xml">
+                <form >
+                    <sheet>
+
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="age"/>
+                                <field name="std_class"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="student_tree_view" model="ir.ui.view">
+            <field name="name">student.tree</field>
+            <field name="model">students</field>
+            <field name="arch" type="xml">
+                <tree >
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="std_class"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="student_search_view" model="ir.ui.view">
+            <field name="name">student.search</field>
+            <field name="model">students</field>
+            <field name="arch" type="xml">
+                <search >
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="std_class"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="student_act_window" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">students</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    student record
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Student" id="student_menu_root" sequence="10" />
+        <menuitem name="Student" id="student_menu" parent="student_menu_root" sequence="10" action="student_act_window"/>
+
+    </data>
+</odoo>
